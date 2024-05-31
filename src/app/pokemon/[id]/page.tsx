@@ -1,5 +1,6 @@
 "use client"
 import Container from "@/app/Container"
+import ModalAddPokemon from "@/components/Modal"
 import TabItems from "@/components/TabItems"
 import PokemonDetailSkeleton from "@/components/skeleton/pokemonDetailSkeleton"
 import Button from "@/components/ui/Button"
@@ -7,6 +8,7 @@ import { Api } from "@/libs/axiosInstance"
 import { useQuery } from "@tanstack/react-query"
 import Image from "next/image"
 import { useParams } from "next/navigation"
+import { useState } from "react"
 
 const PokemonDetail = () => {
   const { id } = useParams<{ id: string }>()
@@ -15,6 +17,8 @@ const PokemonDetail = () => {
     queryKey: ["pokemon", id],
     queryFn: () => Api.get(`/pokemon/${id}`),
   })
+
+  const [isOpen, setIsOpen] = useState(false)
 
   if (isLoading || !data) {
     return <PokemonDetailSkeleton />
@@ -56,11 +60,12 @@ const PokemonDetail = () => {
             />
           </div>
 
-          <Button text="Catch the Pokemon" />
+          <Button text="Catch the Pokemon" onClick={() => setIsOpen(true)} />
         </div>
       </Container>
 
       <TabItems data={pokemon} />
+      <ModalAddPokemon open={isOpen} handleClose={() => setIsOpen(false)} />
     </>
   )
 }
