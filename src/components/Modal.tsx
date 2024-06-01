@@ -3,6 +3,10 @@ import Box from "@mui/material/Box"
 import Fade from "@mui/material/Fade"
 import Modal from "@mui/material/Modal"
 import ModalButton from "./ui/ModalButton"
+import Input from "./ui/Input"
+import { ChangeEvent, useState } from "react"
+import toast from "react-hot-toast"
+import { useRouter } from "next/navigation"
 
 const style = {
   position: "absolute" as "absolute",
@@ -18,9 +22,23 @@ const style = {
 interface ModalAddPokemonProps {
   open: boolean
   handleClose: () => void
+  handleCatchPokemon: (nickname: string) => void
 }
 
-const ModalAddPokemon = ({ open, handleClose }: ModalAddPokemonProps) => {
+const ModalAddPokemon = (props: ModalAddPokemonProps) => {
+  const router = useRouter()
+  const { open, handleClose, handleCatchPokemon } = props
+  const [nickname, setNickname] = useState("")
+
+  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    handleCatchPokemon(nickname)
+    toast.success("Catched!")
+    router.push("/pokebag")
+    setNickname("")
+  }
+
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -37,22 +55,22 @@ const ModalAddPokemon = ({ open, handleClose }: ModalAddPokemonProps) => {
     >
       <Fade in={open}>
         <Box sx={style}>
-          <div className="py-4 px-4">
+          <form onSubmit={handleSubmit} className="py-4 px-4">
             <h3 className="text-center font-semibold">
               Catched! Give your pokemon a nickname.
             </h3>
 
-            <input
-              type="text"
-              placeholder="Name your pokemon"
-              className="bg-slate-100 rounded-md px-4 py-2 outline-none w-full mt-4 placeholder:text-sm border-slate-300 border"
+            <Input
+              placeholder="Name your pokemon!"
+              onChange={(e) => setNickname(e.target.value)}
+              value={nickname}
             />
 
             <div className="flex justify-end gap-2 mr-4">
-              <ModalButton red="red" text="Cancel" onClick={handleClose} />
-              <ModalButton blue="sky" text="Confirm" onClick={() => {}} />
+              <ModalButton type="button" red="red" text="Cancel" onClick={handleClose} />
+              <ModalButton type="submit" blue="sky" text="Confirm" />
             </div>
-          </div>
+          </form>
         </Box>
       </Fade>
     </Modal>

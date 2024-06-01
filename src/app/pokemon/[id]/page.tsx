@@ -24,6 +24,18 @@ const PokemonDetail = () => {
     return <PokemonDetailSkeleton />
   }
 
+  const handleCatchPokemon = (nickname: string) => {
+    const existingData = JSON.parse(localStorage.getItem("Pokemons") || "[]")
+    const newData = {
+      nickname,
+      name: pokemon.name,
+      image: pokemon.sprites.front_default,
+    }
+    existingData.push(newData)
+    localStorage.setItem("Pokemons", JSON.stringify(existingData))
+    setIsOpen(false)
+  }
+
   const pokemon = data.data
 
   return (
@@ -65,7 +77,11 @@ const PokemonDetail = () => {
       </Container>
 
       <TabItems data={pokemon} />
-      <ModalAddPokemon open={isOpen} handleClose={() => setIsOpen(false)} />
+      <ModalAddPokemon
+        handleCatchPokemon={handleCatchPokemon}
+        open={isOpen}
+        handleClose={() => setIsOpen(false)}
+      />
     </>
   )
 }

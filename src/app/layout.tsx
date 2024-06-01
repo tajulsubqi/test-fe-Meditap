@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import Provider from "./Provider"
 import "./globals.css"
+import { Toaster } from "react-hot-toast"
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] })
 
@@ -18,6 +19,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
+        <Toaster
+          toastOptions={{
+            success: {
+              style: {
+                background: "white",
+                color: "green",
+              },
+            },
+            error: {
+              style: {
+                background: "tomato",
+                color: "red",
+              },
+            },
+          }}
+        />
         <Provider>{children}</Provider>
       </body>
     </html>
