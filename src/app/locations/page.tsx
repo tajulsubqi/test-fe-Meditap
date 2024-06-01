@@ -1,9 +1,9 @@
 "use client"
 import Spinner from "@/components/ui/SpinnerLoading"
+import { ILocations } from "@/interface"
 import { Api } from "@/libs/axiosInstance"
 import { useQuery } from "@tanstack/react-query"
-import Container from "../Container"
-import { ILocations } from "@/interface"
+import Container from "../../components/Container"
 
 const LocationsPage = () => {
   const { data, isLoading } = useQuery({
@@ -19,7 +19,7 @@ const LocationsPage = () => {
     <Container>
       <h1 className="my-7 text-3xl font-bold">Locations</h1>
 
-      <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full">
+      <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 hover:bg-gradient-black-red hover:text-white duration-300 lg:grid-cols-4 xl:grid-cols-5 w-full text-black">
         {data?.data.results.map((location: ILocations) => (
           <div
             key={location.name}

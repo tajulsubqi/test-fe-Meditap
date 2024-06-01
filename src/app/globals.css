@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-100
+  @apply bg-[#141414]
 }
 
 ::-webkit-scrollbar {
@@ -14,6 +14,10 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: red;
   border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 ::-webkit-scrollbar-track {

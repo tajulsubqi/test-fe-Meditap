@@ -43,8 +43,10 @@ const TabItems = ({ data }: { data: any }) => {
   }
 
   return (
-    <div className="md:w-full bg-white rounded-t-3xl h-[420px]">
+    <div className="md:w-full  text-slate-200 rounded-t-3xl ">
       <Tabs
+        textColor="inherit"
+        indicatorColor="secondary"
         className="w-full flex justify-center mb-5"
         value={value}
         onChange={handleChange}
@@ -67,7 +69,9 @@ const TabItems = ({ data }: { data: any }) => {
         {data.stats.map((stat: { stat: { name: string }; base_stat: number }) => (
           <div key={stat.stat.name} className="flex gap-3 items-center justify-between">
             <p className="w-1/2 md:w-1/12">{stat.stat.name}</p>
-            <div className="w-full h-2 bg-success rounded" />
+
+            <div className="w-full h-2 bg-red-500" />
+
             <p className="font-bold">{stat.base_stat}</p>
           </div>
         ))}
@@ -78,7 +82,7 @@ const TabItems = ({ data }: { data: any }) => {
           {data.moves.map((move: { move: { name: string } }) => (
             <span
               key={move.move.name}
-              className="bg-primary text-white rounded-lg font-semibold px-3 py-1"
+              className="bg-red-500 text-white rounded-lg font-semibold px-3 py-1"
             >
               {move.move.name}
             </span>

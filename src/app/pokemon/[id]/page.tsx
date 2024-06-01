@@ -1,5 +1,5 @@
 "use client"
-import Container from "@/app/Container"
+import Container from "@/components/Container"
 import ModalAddPokemon from "@/components/Modal"
 import TabItems from "@/components/TabItems"
 import PokemonDetailSkeleton from "@/components/skeleton/pokemonDetailSkeleton"
@@ -40,14 +40,15 @@ const PokemonDetail = () => {
 
   return (
     <>
-      <Container>
+      <Container className="bg-gray-800 rounded-b-[50px]">
         <h1 className="my-7 text-3xl font-bold">{pokemon.name}</h1>
 
         <div className="flex items-center gap-2">
           {pokemon.types.map((item: { type: { name: string } }) => (
             <span
               key={item.type.name}
-              className="bg-success text-white rounded-lg font-semibold px-3 py-1"
+              className="bg-teal-400 text-white rounded-lg font-semibold px-3 py-1"
+              style={{ textShadow: "1px 1px 1px rgba(0, 0, 0, 0.25)" }}
             >
               {item.type.name}
             </span>

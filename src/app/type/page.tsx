@@ -1,6 +1,6 @@
 "use client"
 import { useQuery } from "@tanstack/react-query"
-import Container from "../Container"
+import Container from "../../components/Container"
 import { Api } from "@/libs/axiosInstance"
 import { IPokemon } from "@/interface"
 import Spinner from "@/components/ui/SpinnerLoading"
@@ -21,12 +21,12 @@ const TypesPage = () => {
     <Container>
       <h1 className="my-7 text-3xl font-bold">Types</h1>
 
-      <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full">
+      <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full text-black">
         {types?.map((type: IPokemon) => (
           <Link
             href={`/type/${type.name}`}
             key={type.name}
-            className="w-full flex items-center px-4 py-3 bg-white rounded-xl shadow"
+            className="w-full flex items-center px-4 hover:bg-gradient-black-red hover:text-white duration-300 py-3 bg-white rounded-xl shadow"
           >
             <h4 className="text-lg font-bold">{type.name}</h4>
           </Link>

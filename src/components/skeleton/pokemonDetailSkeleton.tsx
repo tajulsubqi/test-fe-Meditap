@@ -1,4 +1,4 @@
-import Container from "@/app/Container"
+import Container from "@/components/Container"
 import { Skeleton } from "@mui/material"
 
 const PokemonDetailSkeleton = () => {
