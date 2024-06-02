@@ -1,5 +1,6 @@
 "use client"
 import Loading from "@/app/loading"
+import NotFound from "@/app/not-found"
 import Container from "@/components/Container"
 import ListPokemonSearch from "@/components/pokemon_list/ListPokemonSearch"
 import useFilteredPokemons from "@/hooks/useFilteredPokemons"
@@ -7,6 +8,9 @@ import useFilteredPokemons from "@/hooks/useFilteredPokemons"
 const Page = ({ params }: { params: { keyword: string } }) => {
   const { keyword } = params
   const { filteredPokemons, isLoading } = useFilteredPokemons(keyword)
+  if (filteredPokemons.length === 0) {
+    return <NotFound />
+  }
 
   if (isLoading) {
     return <Loading />
