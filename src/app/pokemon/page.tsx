@@ -1,11 +1,12 @@
 "use client"
 import PokemonList from "@/components/pokemon_list/PokemonList"
 import Pagination from "@/components/ui/Pagination"
+import useCaughtPokemons from "@/hooks/useCaughtPokemons"
+import usePagination from "@/hooks/usePagination"
 import { IPokemon } from "@/interface"
-import { Api, getCaughtPokemons } from "@/libs/axiosInstance"
+import { Api } from "@/libs/axiosInstance"
 import { Skeleton } from "@mui/material"
 import { useQuery } from "@tanstack/react-query"
-import { useEffect, useState } from "react"
 import Container from "../../components/Container"
 
 const PokemonPage = () => {
@@ -14,30 +15,13 @@ const PokemonPage = () => {
     queryFn: () => Api.get("/pokemon/?limit=402"),
   })
 
-  // Pagination State
-  const [page, setPage] = useState(1)
   const itemsPerPage = 35
-  const totalPages = Math.ceil(pokemons?.data.results.length / itemsPerPage)
-  const startIndex = (page - 1) * itemsPerPage
-  const endIndex = Math.min(startIndex + itemsPerPage, pokemons?.data.results.length)
+  const { page, totalPages, startIndex, endIndex, handleChange } = usePagination({
+    totalItems: pokemons?.data.results.length || 0,
+    itemsPerPage,
+  })
 
-  const handleChange = (newPage: number) => {
-    if (newPage > 0 && newPage <= totalPages) {
-      setPage(newPage)
-    }
-  }
-
-  const [caughtPokemons, setCaughtPokemons] = useState([])
-
-  useEffect(() => {
-    const storedPokemons = getCaughtPokemons()
-    setCaughtPokemons(storedPokemons)
-  }, [])
-
-  // Fungsi untuk menghitung jumlah Pokemon yang dimiliki berdasarkan nama
-  const countOwnedPokemons = (name: string) => {
-    return caughtPokemons.filter((pokemon: any) => pokemon.name === name).length
-  }
+  const { countOwnedPokemons } = useCaughtPokemons()
 
   return (
     <Container>

@@ -1,6 +1,6 @@
 "use client"
+import Loading from "@/app/loading"
 import Container from "@/components/Container"
-import Spinner from "@/components/ui/SpinnerLoading"
 import { Api } from "@/libs/axiosInstance"
 import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
@@ -12,16 +12,14 @@ interface TypePokemon {
 
 const Page = () => {
   const { id } = useParams<{ id: string }>()
-
   const { data, isLoading } = useQuery({
     queryKey: ["type", id],
     queryFn: () => Api.get(`/type/${id}`),
   })
 
   const typePokemon = data?.data.pokemon
-
   if (isLoading) {
-    return <Spinner />
+    return <Loading />
   }
 
   return (
@@ -34,7 +32,7 @@ const Page = () => {
             <Link
               href={`/pokemon/${pokemon.pokemon.name}`}
               key={pokemon.pokemon.name}
-              className="w-full flex items-center hover:bg-gradient-black-red hover:text-white duration-300 px-4 py-3 hover:bg-primary hover:text-white duration-300 bg-white rounded-xl shadow"
+              className="w-full flex items-center hover:bg-gradient-black-red hover:text-white duration-300 px-4 py-3 hover:bg-primary bg-white rounded-xl shadow"
             >
               <h4 className="text-lg font-bold">{pokemon.pokemon.name}</h4>
             </Link>

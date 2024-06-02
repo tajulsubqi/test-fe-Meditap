@@ -1,50 +1,11 @@
 "use client"
 import Button from "@/components/auth/Button"
 import Input from "@/components/auth/Input"
-import { AuthApi } from "@/libs/axiosInstance"
-import { SchemaValidation } from "@/utils/SchemaValidation"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useMutation } from "@tanstack/react-query"
+import useRegister from "@/hooks/auth/useRegister"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { SubmitHandler, useForm } from "react-hook-form"
-import toast from "react-hot-toast"
-
-export interface FormData {
-  email: string
-  username: string
-  password: string
-  confirmPassword: string
-}
 
 const Register = () => {
-  const router = useRouter()
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(SchemaValidation),
-  })
-
-  const mutation = useMutation({
-    mutationFn: (data: FormData) => AuthApi.post("/register", data),
-    onSuccess: (response) => {
-      toast.success("Register success")
-      console.log(response.data)
-      router.push("/login")
-    },
-    onError: (error: any) => {
-      const errorMessage = error.response?.data?.message || "Register failed"
-      toast.error(errorMessage)
-    },
-  })
-
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    mutation.mutate(data)
-    console.log(data)
-  }
+  const { register, handleSubmit, errors, onSubmit } = useRegister()
 
   return (
     <div className="mt-24 w-full md:w-[700px] bg-black/80 rounded-xl py-10 px-6 md:mt-0 md:px-14">

@@ -1,6 +1,6 @@
 "use client"
+import Loading from "@/app/loading"
 import Container from "@/components/Container"
-import Spinner from "@/components/ui/SpinnerLoading"
 import { PokemonGenders } from "@/interface"
 import { Api } from "@/libs/axiosInstance"
 import { useQuery } from "@tanstack/react-query"
@@ -9,7 +9,6 @@ import { useParams } from "next/navigation"
 
 const Page = () => {
   const { id } = useParams<{ id: string }>()
-
   const { data, isLoading } = useQuery({
     queryKey: ["genders", id],
     queryFn: () => Api.get(`/gender/${id}`),
@@ -18,7 +17,7 @@ const Page = () => {
   const genderPokemon = data?.data.pokemon_species_details
 
   if (isLoading) {
-    return <Spinner />
+    return <Loading />
   }
 
   return (

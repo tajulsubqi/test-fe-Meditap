@@ -1,8 +1,8 @@
 "use client"
-import Spinner from "@/components/ui/SpinnerLoading"
 import { Api } from "@/libs/axiosInstance"
 import { useQuery } from "@tanstack/react-query"
 import Container from "../../components/Container"
+import Loading from "../loading"
 
 const AbilitiesPage = () => {
   const { data, isLoading } = useQuery({
@@ -11,7 +11,7 @@ const AbilitiesPage = () => {
   })
 
   if (isLoading) {
-    return <Spinner />
+    return <Loading />
   }
 
   return (

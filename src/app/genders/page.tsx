@@ -1,9 +1,9 @@
 "use client"
-import Spinner from "@/components/ui/SpinnerLoading"
 import { Api } from "@/libs/axiosInstance"
 import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 import Container from "../../components/Container"
+import Loading from "../loading"
 
 interface Gender {
   name: string
@@ -16,10 +16,8 @@ const GendersPage = () => {
     queryFn: () => Api.get("/gender"),
   })
 
-  console.log(data)
-
   if (isLoading) {
-    return <Spinner />
+    return <Loading />
   }
 
   return (

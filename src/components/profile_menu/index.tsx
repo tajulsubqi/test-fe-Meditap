@@ -20,6 +20,7 @@ const MenuProfile = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token")
+    localStorage.removeItem("Pokemons")
     setIsOpen(false)
     toast.success("Logged out successfully")
     router.push("/login")

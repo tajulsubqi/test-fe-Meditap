@@ -1,10 +1,10 @@
 "use client"
-import { useQuery } from "@tanstack/react-query"
-import Container from "../../components/Container"
-import { Api } from "@/libs/axiosInstance"
 import { IPokemon } from "@/interface"
-import Spinner from "@/components/ui/SpinnerLoading"
+import { Api } from "@/libs/axiosInstance"
+import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
+import Container from "../../components/Container"
+import Loading from "../loading"
 
 const TypesPage = () => {
   const { data, isLoading } = useQuery({
@@ -14,7 +14,7 @@ const TypesPage = () => {
   const types = data?.data.results
 
   if (isLoading) {
-    return <Spinner />
+    return <Loading />
   }
 
   return (

@@ -19,6 +19,7 @@ interface InputProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   value?: string
   name?: string
+  className?: string
 }
 
 const Input = ({
@@ -30,6 +31,7 @@ const Input = ({
   onChange,
   value,
   name,
+  className,
 }: InputProps) => {
   const [showPassword, setShowPassword] = useState(false)
 
@@ -51,7 +53,7 @@ const Input = ({
           type={showPassword ? "text" : type}
           placeholder={placeholder}
           name={name}
-          className="w-full bg-slate-700 text-white text-sm outline-none px-3 py-2 rounded-md placeholder:text-sm"
+          className={`w-full bg-slate-700 text-white text-sm outline-none px-3 py-2 rounded-md placeholder:text-sm ${className}`}
         />
         {type === "password" && (
           <button
