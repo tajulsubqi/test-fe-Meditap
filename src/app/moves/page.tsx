@@ -25,7 +25,7 @@ const MovesPage = () => {
           <div
             // href={`/moves/${move.name}`}
             key={move.name}
-            className="w-full flex items-center px-4 py-3 hover:bg-gradient-black-red hover:text-white duration-300 bg-white rounded-xl shadow"
+            className="w-full flex items-center px-4 py-3 bg-white rounded-xl shadow"
           >
             <h4 className="text-lg font-bold">{move.name}</h4>
           </div>

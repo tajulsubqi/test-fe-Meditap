@@ -22,7 +22,7 @@ const AbilitiesPage = () => {
         {data?.data.results.map((ability: any) => (
           <div
             key={ability.name}
-            className="w-full flex hover:bg-gradient-black-red hover:text-white duration-300 items-center px-4 py-3 bg-white rounded-xl shadow"
+            className="w-full flex items-center px-4 py-3 bg-white rounded-xl shadow"
           >
             <h4 className="text-lg font-bold">{ability.name}</h4>
           </div>
