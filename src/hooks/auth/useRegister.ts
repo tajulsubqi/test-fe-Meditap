@@ -1,10 +1,9 @@
 "use client"
 import { AuthApi } from "@/libs/axiosInstance"
-import { SchemaValidation } from "@/utils/SchemaValidation"
-import { zodResolver } from "@hookform/resolvers/zod"
+import { validateRegisterForm } from "@/utils/AuthFormValidation"
 import { useMutation } from "@tanstack/react-query"
 import { useRouter } from "next/navigation"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { ChangeEvent, useState } from "react"
 import toast from "react-hot-toast"
 
 export interface FormData {
@@ -17,12 +16,11 @@ export interface FormData {
 const useRegister = () => {
   const router = useRouter()
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({
-    resolver: zodResolver(SchemaValidation),
+  const [formData, setFormData] = useState<FormData>({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   })
 
   const mutation = useMutation({
@@ -38,16 +36,26 @@ const useRegister = () => {
     },
   })
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    mutation.mutate(data)
-    console.log(data)
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const errorMessage = validateRegisterForm(formData)
+    if (errorMessage) {
+      toast.error(errorMessage)
+      return
+    }
+
+    mutation.mutate(formData)
   }
 
   return {
-    register,
+    formData,
+    handleChange,
     handleSubmit,
-    errors,
-    onSubmit,
   }
 }
 

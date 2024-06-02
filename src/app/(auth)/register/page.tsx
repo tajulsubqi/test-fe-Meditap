@@ -5,11 +5,13 @@ import useRegister from "@/hooks/auth/useRegister"
 import Link from "next/link"
 
 const Register = () => {
-  const { register, handleSubmit, errors, onSubmit } = useRegister()
+  const { handleChange, formData, handleSubmit } = useRegister()
+
+  console.log()
 
   return (
     <div className="mt-24 w-full md:w-[700px] bg-black/80 rounded-xl py-10 px-6 md:mt-0 md:px-14">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
         <h1 className="text-3xl font-semibold text-white">Register</h1>
 
         <div className="space-y-6 mt-5">
@@ -17,52 +19,45 @@ const Register = () => {
             <Input
               placeholder="Username"
               type="text"
-              register={register}
-              label="username"
+              value={formData.username}
+              name="username"
+              onChange={handleChange}
               required
             />
-            {errors.username && (
-              <p className="text-red-500 text-sm">{errors.username.message}</p>
-            )}
           </div>
 
           <div>
             <Input
               placeholder="Email"
               type="email"
-              register={register}
-              label="email"
+              onChange={handleChange}
+              name="email"
+              value={formData.email}
               required
             />
-            {errors.email && (
-              <p className="text-red-500 text-sm">{errors.email.message}</p>
-            )}
           </div>
 
           <div>
             <Input
               placeholder="Password"
               type="password"
-              register={register}
               label="password"
               required
+              onChange={handleChange}
+              name="password"
+              value={formData.password}
             />
-            {errors.password && (
-              <p className="text-red-500 text-sm">{errors.password.message}</p>
-            )}
           </div>
 
           <div>
             <Input
               placeholder="Confirm Password"
               type="password"
-              register={register}
-              label="confirmPassword"
               required
+              onChange={handleChange}
+              name="confirmPassword"
+              value={formData.confirmPassword}
             />
-            {errors.confirmPassword && (
-              <p className="text-red-500 text-sm">{errors.confirmPassword.message}</p>
-            )}
           </div>
 
           <Button type="submit" text="Register" />
