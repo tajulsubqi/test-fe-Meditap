@@ -1,11 +1,32 @@
 "use client"
-import useSlideshow from "@/hooks/useSlideShow"
 import { Slides } from "@/mocks/slides"
+import { useEffect, useState } from "react"
 import { FaCircle } from "react-icons/fa"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 
 const Banner = () => {
-  const { currentIndex, prevSlide, nextSlide, setCurrentIndex } = useSlideshow(Slides)
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => {
+        if (prevIndex === Slides.length - 1) {
+          return 0
+        }
+        return prevIndex + 1
+      })
+    }, 7000)
+
+    return () => clearInterval(intervalId)
+  }, [Slides])
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? Slides.length - 1 : prevIndex - 1))
+  }
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === Slides.length - 1 ? 0 : prevIndex + 1))
+  }
 
   return (
     <div className="relative flex mx-4">
