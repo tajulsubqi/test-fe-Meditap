@@ -57,14 +57,18 @@ Start the server
   npm run dev
 ```
 
-### Desktop
+## Demo
+
+You can see a demo of this project at [https://vingzpoke.vercel.app/](https://vingzpoke.vercel.app/).
+
+#### Desktop
 
 <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 50px">
   <img src="./public/images/ss/ss-mac2.png" />
   <img src="./public/images/ss/ss-mac1.png" />
 </div>
 
-### Mobile
+#### Mobile
 
 <div style="display: flex; gap: 10px; margin-top: 50px">
 <img src="./public/images/ss/ss-mobile2.png" width="300"/>
