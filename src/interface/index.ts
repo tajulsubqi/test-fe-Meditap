@@ -10,3 +10,10 @@ export interface PokemonGenders {
 export interface ILocations {
   name: string
 }
+
+export interface UserType {
+  email: string | ""
+  username?: string
+  password: string
+  confirmPassword?: string
+}

@@ -1,3 +1,4 @@
+"use client"
 import Banner from "@/components/Banner"
 import Nav from "@/components/Nav"
 import NavLink from "@/components/NavLink"

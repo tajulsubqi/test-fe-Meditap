@@ -5,13 +5,14 @@ interface InputProps {
   value?: string
   name?: string
   placeholder?: string
+  type?: string
 }
 
-const Input = ({ onChange, value, name, placeholder }: InputProps) => {
+const Input = ({ onChange, value, name, placeholder, type }: InputProps) => {
   return (
     <>
       <input
-        type="text"
+        type={type}
         name={name}
         value={value}
         onChange={onChange}

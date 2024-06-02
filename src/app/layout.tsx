@@ -29,7 +29,7 @@ export default function RootLayout({
             },
             error: {
               style: {
-                background: "tomato",
+                background: "white",
                 color: "red",
               },
             },
