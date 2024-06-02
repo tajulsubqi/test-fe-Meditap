@@ -1,11 +1,36 @@
 "use client"
-import { Slides } from "@/mocks/slides"
 import { useEffect, useState } from "react"
 import { FaCircle } from "react-icons/fa"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
+import poke1 from "/public/images/poke1.png"
+import poke2 from "/public/images/poke2.png"
+import poke3 from "/public/images/poke3.png"
 
 const Banner = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+
+  const Slides = [
+    {
+      id: 1,
+      title: "Pokémon",
+      url: poke1.src,
+      synopsis:
+        "Explore a vast world and discover a variety of interesting Pokemon, from lush forests to majestic mountains.",
+    },
+    {
+      id: 2,
+      title: "Pokémon",
+      url: poke2.src,
+      synopsis:
+        "Get ready for an exciting adventure! Get an unforgettable experience as you explore vast areas and catch a variety of unique Pokemon.",
+    },
+    {
+      id: 3,
+      url: poke3.src,
+      synopsis:
+        "Join the epic adventure to become a Pokemon Master! Show your skills in catching, training, and battling Pokemon in every corner of the Pokemon world.",
+    },
+  ]
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -18,7 +43,7 @@ const Banner = () => {
     }, 7000)
 
     return () => clearInterval(intervalId)
-  }, [Slides])
+  }, [])
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? Slides.length - 1 : prevIndex - 1))
