@@ -39,7 +39,7 @@ const PokemonDetail = () => {
 
               <PokemonTypes types={data.data.types} />
 
-              <div className="border flex md:flex-col items-center justify-center border-red-400 mt-7 bg-gray-100 rounded-2xl">
+              <div className="border flex md:flex-col items-center justify-center border-red-400 mt-7 bg-gradient-to-tr from-slate-50 to-slate-300 rounded-2xl">
                 <Image
                   src={pokemon.sprites.front_default}
                   alt={pokemon.name}

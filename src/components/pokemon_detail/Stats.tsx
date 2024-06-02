@@ -23,7 +23,7 @@ const SkillsBar = ({ stats }: StatsProps) => {
             <p className="w-[130px] text-sm">{stat.stat.name}</p>
             <div className="relative w-[150px] md:w-[200px] lg:w-[400px] h-2 bg-white rounded-full">
               <div
-                className="absolute top-0 left-0 h-full bg-teal-400 border-2 border-teal-700 rounded-full"
+                className="absolute top-0 left-0 h-full bg-teal-500 border-2 border-teal-700 rounded-full"
                 style={{ width: `${(stat.base_stat / maxStatValue) * 100}%` }}
               ></div>
             </div>

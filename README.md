@@ -1,47 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Logo](https://m.meditap.id/_next/static/media/LogoMeditap.9ee06db9.png)
 
-## Getting Started
+# PT Teknologi Pamadya Analitika
 
-First, run the development server:
+## Project Description
+
+PT Meditab's technical test application allows users to search for Pokémon, catch them, store them in a Pokébag, and give nicknames to captured Pokémon. The application also comes with an authentication feature, where users must log in first to access these features.
+
+## Features
+
+- **User Authentication**: Users must be logged in to access the application.
+- **Pokémon Search**: Users can search for Pokémon based on search queries.
+- **Pokémon Capture**: Users can capture Pokémon and store them into their Pokébag.
+- **Nickname Addition**: Users can give nicknames to captured Pokémon.
+- **Pokébag**: Stores a list of Pokémon that have been captured by the user.
+
+## Tech Stack
+
+- **Frontend**: Next.js, TypeScript, Axios, TailwindCSS, Material UI
+- **API**: PokéAPI to get Pokémon data
+- **State Management**: React Query
+- **Form Validation**: Zod, React Hook Form
+
+## Installation
+
+Install test-fe-Meditap with npm
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/tajulsubqi/test-fe-Meditap.git
+  cd test-fe-Meditap
+  npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run Locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Clone the project
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+  git clone https://github.com/tajulsubqi/test-fe-Meditap.git
+```
 
-## Learn More
+Go to the project directory
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+ cd test-fe-Meditap
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Install dependencies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+  npm install
+```
 
-## Deploy on Vercel
+Start the server
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+  npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Screenshots
 
-     <!-- <input
-            type="email"
-            value={formData.email}
-            name="email"
-            onChange={handleChange}
-            placeholder="Email"
-            className="w-full bg-slate-700 text-white text-sm outline-none px-3 py-2 rounded-md placeholder:text-sm"
-          />
+<div style="display: flex; flex-direction: column; gap: 20px; margin-top: 50px">
+  <img src="./public/images/ss/ss-mac2.png" />
+  <img src="./public/images/ss/ss-mac1.png" />
+</div>
 
-           -->
+<div style="display: flex; gap: 10px; margin-top: 50px">
+<img src="./public/images/ss/ss-mobile2.png" width="300"/>
+<img src="./public/images/ss/ss-mobile1.png" width="300"/>
+</div>
+
+## Feedback
+
+If you have any feedback, please reach out to us at [subqitajul7@gmail.com](mailto:subqitajul7@gmail.com)
+
+## Authors
+
+- [Tajul Subqi](https://github.com/tajulsubqi)

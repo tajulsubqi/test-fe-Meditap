@@ -8,10 +8,10 @@ import Link from "next/link"
 import { useParams } from "next/navigation"
 
 const Page = () => {
-  const { id } = useParams<{ id: string }>()
+  const { detail } = useParams<{ detail: string }>()
   const { data, isLoading } = useQuery({
-    queryKey: ["genders", id],
-    queryFn: () => Api.get(`/gender/${id}`),
+    queryKey: ["genders", detail],
+    queryFn: () => Api.get(`/gender/${detail}`),
   })
 
   const genderPokemon = data?.data.pokemon_species_details
