@@ -1,5 +1,5 @@
 "use client"
-import MenuProfile from "./menu/MenuProfile"
+import MenuProfile from "./profile_menu"
 import SearchInput from "./ui/SearchInput"
 
 const Nav = () => {

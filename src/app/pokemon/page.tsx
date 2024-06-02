@@ -1,19 +1,17 @@
 "use client"
+import PokemonList from "@/components/pokemon_list/PokemonList"
+import Pagination from "@/components/ui/Pagination"
+import { IPokemon } from "@/interface"
 import { Api, getCaughtPokemons } from "@/libs/axiosInstance"
 import { Skeleton } from "@mui/material"
 import { useQuery } from "@tanstack/react-query"
-import Image from "next/image"
-import Link from "next/link"
-import Container from "../../components/Container"
-import { IPokemon } from "@/interface"
 import { useEffect, useState } from "react"
-import Pagination from "@/components/ui/Pagination"
-import SearchInput from "@/components/ui/SearchInput"
+import Container from "../../components/Container"
 
 const PokemonPage = () => {
   const { data: pokemons, isLoading } = useQuery({
     queryKey: ["pokemon"],
-    queryFn: () => Api.get("/pokemon/?limit=1302"),
+    queryFn: () => Api.get("/pokemon/?limit=402"),
   })
 
   // Pagination State
@@ -45,8 +43,6 @@ const PokemonPage = () => {
     <Container>
       <h1 className="my-7 text-3xl font-bold">Pokemon</h1>
 
-      {/* <SearchInput placeholder="Search Pokemon ..." /> */}
-
       <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full">
         {isLoading
           ? // Tampilkan Skeleton saat data sedang dimuat
@@ -71,22 +67,13 @@ const PokemonPage = () => {
                 const ownedCount = countOwnedPokemons(pokemon.name)
 
                 return (
-                  <Link
-                    href={`/pokemon/${pokemon.name}`}
-                    key={pokemon.url}
-                    className="w-full flex items-center px-3 py-3 bg-white text-black rounded-xl shadow hover:bg-gradient-black-red hover:text-white duration-300"
-                  >
-                    <Image src={image} alt="pokemon" width={80} height={40} />
-                    <div className="ml-3">
-                      <h4 className="text-lg font-bold">{pokemon.name}</h4>
-                      <p className="text-sm hover:text-white ">
-                        Owned:{" "}
-                        <span className="font-semibold text-lg text-red-400">
-                          {ownedCount}
-                        </span>
-                      </p>
-                    </div>
-                  </Link>
+                  <PokemonList
+                    key={pokemon.name}
+                    name={pokemon.name}
+                    url={pokemon.url}
+                    image={image}
+                    ownedCount={ownedCount}
+                  />
                 )
               })}
       </div>
