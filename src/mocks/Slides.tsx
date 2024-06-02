@@ -2,7 +2,7 @@ import poke1 from "/public/images/poke1.png"
 import poke2 from "/public/images/poke2.png"
 import poke3 from "/public/images/poke3.png"
 
-export const slides = [
+export const Slides = [
   {
     id: 1,
     title: "Pokémon",

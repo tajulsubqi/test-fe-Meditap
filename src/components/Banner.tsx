@@ -1,18 +1,18 @@
 "use client"
 import useSlideshow from "@/hooks/useSlideShow"
-import { slides } from "@/mocks/slides"
+import { Slides } from "@/mocks/slides"
 import { FaCircle } from "react-icons/fa"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 
 const Banner = () => {
-  const { currentIndex, prevSlide, nextSlide, setCurrentIndex } = useSlideshow(slides)
+  const { currentIndex, prevSlide, nextSlide, setCurrentIndex } = useSlideshow(Slides)
 
   return (
     <div className="relative flex mx-4">
       <div className="w-full relative">
         <div
           style={{
-            backgroundImage: `url(${slides[currentIndex].url})`,
+            backgroundImage: `url(${Slides[currentIndex].url})`,
           }}
           className=" bg-cover bg-center h-[360px] rounded-t-2xl md:h-[680px] duration-300 transition-all"
         />
@@ -35,16 +35,16 @@ const Banner = () => {
       <section className="absolute cursor-default inset-x-0 bottom-0 z-20 text-Absolute-White ">
         <div className="flex flex-col items-start text-start w-full gap-2.5 px-2 pb-5 lg:w-2/3 md:p-20 md:gap-5">
           <div className="flex flex-col gap-1 md:gap-2">
-            <p className="text-lg font-bold md:text-4xl">{slides[currentIndex].title}</p>
+            <p className="text-lg font-bold md:text-4xl">{Slides[currentIndex].title}</p>
             <p className="text-sm leading-4 lg:contents">
-              {slides[currentIndex].synopsis}
+              {Slides[currentIndex].synopsis}
             </p>
           </div>
         </div>
       </section>
 
       <div className="absolute flex justify-center inset-x-0 top-3 md:top-auto md:bottom-10  z-20 gap-2">
-        {slides.map((slide, index) => (
+        {Slides.map((slide, index) => (
           <div
             key={index}
             onClick={() => setCurrentIndex(index)}
