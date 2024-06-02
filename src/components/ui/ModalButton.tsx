@@ -1,12 +1,5 @@
+import { ModalButtonProps } from "@/interface/ui_props"
 import React from "react"
-
-interface ModalButtonProps {
-  text: string
-  onClick?: () => void
-  blue?: string
-  red?: string
-  type?: "submit" | "button"
-}
 
 const ModalButton = ({ text, type, onClick, blue, red }: ModalButtonProps) => {
   return (

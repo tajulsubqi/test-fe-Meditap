@@ -31,7 +31,7 @@ const MenuProfile = () => {
       <div>
         <button
           type="button"
-          className="inline-flex justify-center items-center rounded-full w-full border border-gray-300 shadow-sm px-4 py-1 bg-white text-gray-700 hover:bg-gray-200 duration-300"
+          className="inline-flex justify-center items-center rounded-full w-full border border-gray-300 shadow-sm px-4 py-1 bg-white text-gray-700 hover:bg-gray-300 duration-300"
           id="options-menu"
           aria-expanded={isOpen}
           aria-haspopup="true"

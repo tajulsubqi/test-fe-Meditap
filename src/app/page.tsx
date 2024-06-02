@@ -2,29 +2,19 @@
 import Banner from "@/components/Banner"
 import Nav from "@/components/Nav"
 import NavLink from "@/components/NavLink"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 import { BiSolidRightArrow } from "react-icons/bi"
 
 const Home = () => {
-  const linkGroups = [
-    {
-      links: [
-        { href: "/pokemon", text: "Pokemon", bgColor: "bg-success" },
-        { href: "/moves", text: "Moves", bgColor: "bg-danger" },
-      ],
-    },
-    {
-      links: [
-        { href: "/abilities", text: "Abilities", bgColor: "bg-sky_primary" },
-        { href: "/genders", text: "Genders", bgColor: "bg-accent" },
-      ],
-    },
-    {
-      links: [
-        { href: "/locations", text: "Locations", bgColor: "bg-primary_purple" },
-        { href: "/type", text: "Types", bgColor: "bg-primary_brown" },
-      ],
-    },
-  ]
+  const router = useRouter()
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (!token) {
+      router.push("/login")
+    }
+  }, [router])
 
   return (
     <>
@@ -43,9 +33,7 @@ const Home = () => {
         </div>
 
         <div>
-          {linkGroups.map((group, index) => (
-            <NavLink key={index} links={group.links} />
-          ))}
+          <NavLink />
         </div>
       </div>
     </>

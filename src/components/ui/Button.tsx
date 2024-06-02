@@ -1,8 +1,4 @@
-interface ButtonProps {
-  onClick?: () => void
-  text: string
-  className?: string
-}
+import { ButtonProps } from "@/interface/ui_props"
 
 const Button = ({ onClick, text, className }: ButtonProps) => {
   return (

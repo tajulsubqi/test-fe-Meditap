@@ -1,14 +1,11 @@
 "use client"
 import Loading from "@/app/loading"
 import Container from "@/components/Container"
+import { TypePokemon } from "@/interface"
 import { Api } from "@/libs/axiosInstance"
 import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 import { useParams } from "next/navigation"
-
-interface TypePokemon {
-  pokemon: { name: string }
-}
 
 const Page = () => {
   const { id } = useParams<{ id: string }>()

@@ -17,3 +17,22 @@ export interface UserType {
   password: string
   confirmPassword?: string
 }
+
+export interface Gender {
+  name: string
+  url: string
+}
+
+export interface Moves {
+  name: string
+}
+
+export interface IPokemon {
+  name: string
+  image: string
+  nickname: string
+}
+
+export interface TypePokemon {
+  pokemon: { name: string }
+}

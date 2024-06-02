@@ -1,8 +1,8 @@
 "use client"
 import useSlideshow from "@/hooks/useSlideShow"
+import { slides } from "@/mocks/slides"
 import { FaCircle } from "react-icons/fa"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
-import { slides } from "@/mocks/Slides"
 
 const Banner = () => {
   const { currentIndex, prevSlide, nextSlide, setCurrentIndex } = useSlideshow(slides)

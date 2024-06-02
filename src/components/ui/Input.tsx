@@ -1,12 +1,5 @@
+import { InputProps } from "@/interface/ui_props"
 import React from "react"
-
-interface InputProps {
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  value?: string
-  name?: string
-  placeholder?: string
-  type?: string
-}
 
 const Input = ({ onChange, value, name, placeholder, type }: InputProps) => {
   return (

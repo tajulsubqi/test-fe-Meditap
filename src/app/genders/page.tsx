@@ -4,11 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 import Container from "../../components/Container"
 import Loading from "../loading"
-
-interface Gender {
-  name: string
-  url: string
-}
+import { Gender } from "@/interface"
 
 const GendersPage = () => {
   const { data, isLoading } = useQuery({

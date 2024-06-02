@@ -1,8 +1,4 @@
-interface PaginationProps {
-  currentPage: number
-  totalPages: number
-  onPageChange: (page: number) => void
-}
+import { PaginationProps } from "@/interface/ui_props"
 
 const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
   const renderPageNumbers = () => {

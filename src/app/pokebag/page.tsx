@@ -2,12 +2,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import Container from "../../components/Container"
-
-interface IPokemon {
-  name: string
-  image: string
-  nickname: string
-}
+import { IPokemon } from "@/interface"
 
 const PokeBagPage = () => {
   const [pokemons, setPokemons] = useState<IPokemon[]>([])

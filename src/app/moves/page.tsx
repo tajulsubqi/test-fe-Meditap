@@ -4,10 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 import Container from "../../components/Container"
 import Loading from "../loading"
-
-interface Moves {
-  name: string
-}
+import { Moves } from "@/interface"
 
 const MovesPage = () => {
   const { data, isLoading } = useQuery({
