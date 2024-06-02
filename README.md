@@ -57,12 +57,14 @@ Start the server
   npm run dev
 ```
 
-## Screenshots
+### Desktop
 
 <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 50px">
   <img src="./public/images/ss/ss-mac2.png" />
   <img src="./public/images/ss/ss-mac1.png" />
 </div>
+
+### Mobile
 
 <div style="display: flex; gap: 10px; margin-top: 50px">
 <img src="./public/images/ss/ss-mobile2.png" width="300"/>
