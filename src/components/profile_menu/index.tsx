@@ -1,33 +1,15 @@
 "use client"
+import useSession from "@/hooks/useSession"
 import { Menu, Transition } from "@headlessui/react"
-import { jwtDecode } from "jwt-decode"
-import { useRouter } from "next/navigation"
-import { Fragment, useEffect, useState } from "react"
-import { toast } from "react-hot-toast"
+import { Fragment } from "react"
 import { FaChevronDown, FaRegUserCircle } from "react-icons/fa"
 import { RiLogoutCircleLine } from "react-icons/ri"
 
 const MenuProfile = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
-
-  const [session, setSession] = useState<any>(null!)
-
-  useEffect(() => {
-    const token = localStorage.getItem("token")
-    token ? setSession(jwtDecode(token)) : router.push("/login")
-  }, [])
-
-  const handleLogout = () => {
-    localStorage.removeItem("token")
-    localStorage.removeItem("Pokemons")
-    setIsOpen(false)
-    toast.success("Logged out successfully")
-    router.push("/login")
-  }
+  const { isOpen, setIsOpen, menuRef, session, handleLogout } = useSession()
 
   return (
-    <div className="relative inline-block text-left">
+    <div className="relative inline-block text-left" ref={menuRef}>
       <div>
         <button
           type="button"
@@ -75,10 +57,10 @@ const MenuProfile = () => {
                   onClick={handleLogout}
                   className={`${
                     active ? "bg-gray-100" : ""
-                  } group flex w-full items-center hover:bg-slate-200 px-4 py-2 text-md text-Red-50`}
+                  } group flex w-full items-center hover:bg-slate-200 px-4 py-2 text-md text-red-500`}
                 >
                   <RiLogoutCircleLine
-                    className="w-5 h-5 mr-2 text-Red-50"
+                    className="w-5 h-5 mr-2 text-red-500"
                     aria-hidden="true"
                   />
                   Logout

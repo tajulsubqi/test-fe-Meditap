@@ -7,8 +7,6 @@ import Link from "next/link"
 const Register = () => {
   const { handleChange, formData, handleSubmit } = useRegister()
 
-  console.log()
-
   return (
     <div className="mt-24 w-full md:w-[700px] bg-black/80 rounded-xl py-10 px-6 md:mt-0 md:px-14">
       <form onSubmit={handleSubmit}>

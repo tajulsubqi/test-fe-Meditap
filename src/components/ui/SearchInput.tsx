@@ -29,7 +29,7 @@ const SearchInput = (props: InputProps) => {
   }
 
   return (
-    <div className="relative bg-gray-100 rounded-full px-4 py-2 w-[400px]">
+    <div className="relative bg-gray-100 rounded-full px-4 py-2 md:w-[400px]">
       <input
         type="text"
         ref={searchHref}

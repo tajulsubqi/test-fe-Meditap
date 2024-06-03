@@ -1,8 +1,17 @@
+"use client"
 import Image from "next/image"
-import React from "react"
+import React, { useEffect } from "react"
 import Background from "../../../public/images/poke3.png"
+import { useRouter } from "next/navigation"
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter()
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      router.push("/")
+    }
+  }, [router])
+
   return (
     <div className="relative flex h-screen w-full flex-col px-5 md:px-0 md:items-center md:justify-center md:bg-transparent">
       <Image

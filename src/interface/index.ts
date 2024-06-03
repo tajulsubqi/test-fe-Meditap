@@ -36,3 +36,9 @@ export interface IPokemon {
 export interface TypePokemon {
   pokemon: { name: string }
 }
+
+export interface Session {
+  name: string
+  email: string
+  username: string
+}
