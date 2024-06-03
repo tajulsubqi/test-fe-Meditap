@@ -23,8 +23,11 @@ const Container = ({ children, className }: Props) => {
   return (
     <div className={`${className} px-7 py-9 text-white`}>
       <div className="flex justify-between items-center">
-        <span className="flex gap-2 items-center cursor-pointer hover:text-red-400 duration-300">
-          <IoArrowBack size={25} onClick={() => router.back()} />
+        <span
+          onClick={() => router.back()}
+          className="flex gap-2 items-center cursor-pointer hover:text-red-400 duration-300"
+        >
+          <IoArrowBack size={25} />
           back
         </span>
 
