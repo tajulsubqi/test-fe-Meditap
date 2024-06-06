@@ -3,10 +3,10 @@ import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { Api } from "@/libs/axiosInstance"
 
-const usePokemonDetail = (id: string) => {
+const usePokemonDetail = (detail: string) => {
   const { data, isLoading } = useQuery({
-    queryKey: ["pokemon", id],
-    queryFn: () => Api.get(`/pokemon/${id}`),
+    queryKey: ["pokemon", detail],
+    queryFn: () => Api.get(`/pokemon/${detail}`),
   })
 
   const [isOpen, setIsOpen] = useState(false)

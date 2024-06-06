@@ -7,7 +7,6 @@ import Link from "next/link"
 const Login = () => {
   const { formData, handleChange, handleSubmit } = useLogin()
 
-
   return (
     <div className="mt-24 w-full md:w-[700px] rounded-xl bg-black/80 py-10 px-6 md:mt-0 md:px-14">
       <form onSubmit={handleSubmit}>
@@ -44,7 +43,7 @@ const Login = () => {
       </form>
 
       <div className="text-sm text-center text-gray-400 mt-2">
-        New to PokeDex?{" "}
+        New to VingzPoke?{" "}
         <Link href="/register" className="ml-2 text-white hover:underline">
           Sign Up Now!
         </Link>
